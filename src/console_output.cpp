@@ -68,7 +68,7 @@ void usbtop::ConsoleOutput::print_stats()
 void usbtop::ConsoleOutput::print_stats_bus(UsbBus const& bus)
 {
 	std::cout << "Bus ID " << bus.id() << " (" << bus.desc() << ")"; 
-	std::cout << "\tTo device\tFrom device" << std::endl;
+	std::cout << "\tbw To device\tbw From device\ttot. To device\ttot. From device" << std::endl;
 	UsbBus::list_devices_t const& devs = bus.devices();
 	UsbBus::list_devices_t::const_iterator it;
 	for (it = devs.begin(); it != devs.end(); it++) {
@@ -77,6 +77,8 @@ void usbtop::ConsoleOutput::print_stats_bus(UsbBus const& bus)
 		std::cout << "  Device ID " << std::setw(3) << it->first << " :\t";
 		double stats_to = stats.stats_to_device().bw_instant()/1024.0;
 		double stats_from = stats.stats_from_device().bw_instant()/1024.0;
-		std::cout << "\t\t\t" << stats_to << " KiB/s\t" << stats_from << " KiB/s" << std::endl;
+		double data_to = stats.stats_to_device().total_data()/1024.0/1024.0;
+		double data_from = stats.stats_from_device().total_data()/1024.0/1024.0;
+		std::cout << "\t" <<stats_to<<" kB/s\t" << stats_from<<" kB/s\t"   << data_to <<" MB\t\t" << data_from<<" MB" << std::endl;
 	}
 }

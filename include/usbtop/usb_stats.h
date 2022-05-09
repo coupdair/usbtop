@@ -61,6 +61,7 @@ public:
 public:
 	double bw_instant() const;
 	double bw_mean() const;
+	double total_data() const;
 
 private:
 	// Global stats

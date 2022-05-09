@@ -118,3 +118,8 @@ double usbtop::Stats::bw_mean() const
 {
 	return (double)nbytes_/(tN_-t0_);
 }
+
+double usbtop::Stats::total_data() const
+{
+	return (double)nbytes_;
+}
