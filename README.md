@@ -19,16 +19,21 @@ A ncurses and Qt interfaces with a Windows port are the next steps. Feel free to
 Usage
 -----
 
+
+## load module
+
 Please refer to the ```INSTALL.md``` file for installation instructions.
 Then, you need to have the ```usbmon``` module loaded. As root, do :
 
 ```
-# modprobe usbmon
+# sudo modprobe usbmon
 ```
 
 Moreover, on some distributions, usbtop need to be run as root!
 
 run (as root or `sudo`)
+
+## run
 
 ```
 # sudo usbtop
@@ -36,7 +41,7 @@ run (as root or `sudo`)
 
 USBtop output a table (that is refreshing)
 containing USB
-bus/device Ids, present band width and total transfered (since it is running).
+bus/device Ids, present band width and total transfered data (since it is running).
 
 ```
 Bus ID 0 (All USB buses)	bw To device	bw From device	tot. To device	tot. From device
